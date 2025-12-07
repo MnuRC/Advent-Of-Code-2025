@@ -23,17 +23,10 @@ int main()
     if(!getline(cin, line)) return 0;
     while(getline(cin, line)){
         if(line.empty()) break;
-
         fill(next_beams.begin(), next_beams.end(), 0);
-
-        bool active = false;
-
         for(int i = 0; i < len; i++){
             if(current_beams[i] == 0) continue;
-
-            active = true;
             long long count = current_beams[i];
-
             if(line[i] == '^'){
                 if(i - 1 >= 0)  next_beams[i - 1] += count;
                 if(i + 1 < len) next_beams[i + 1] += count;
